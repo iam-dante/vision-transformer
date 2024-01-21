@@ -60,21 +60,4 @@ class TinyVGG(nn.Module):
         x = self.classifier(x)
         return x
         # return self.classifier(self.block_2(self.block_1(x))) # <- leverage the benefits of operator fusion
-
-def set_seeds(seed: int=42,device: str="gpu"):
-
-    """
-    Sets random sets for torch operations.
-
-    Args:
-        seed (int, optional): Random seed to set. Defaults to 42.
-
-    """
-
-    if (device == "mps"):
-        torch.mps.seed(seed)
-    else:
-        torch.cuda.manual_seed(seed) # Set the seed for CUDA torch operations (ones that happen on the GPU)
-    # Set the seed for general torch operations
-    torch.manual_seed(seed)
         

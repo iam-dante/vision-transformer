@@ -264,16 +264,6 @@ def pred_and_plot_image(
     plt.title(title)
     plt.axis(False)
 
-def set_seeds(seed: int=42):
-    """Sets random sets for torch operations.
-
-    Args:
-        seed (int, optional): Random seed to set. Defaults to 42.
-    """
-    # Set the seed for general torch operations
-    torch.manual_seed(seed)
-    # Set the seed for CUDA torch operations (ones that happen on the GPU)
-    torch.cuda.manual_seed(seed)
 
 def download_data(source: str, 
                   destination: str,
@@ -320,4 +310,25 @@ def download_data(source: str,
             os.remove(data_path / target_file)
     
     return image_path
+
+def set_seeds(seed: int=42, set_device:str="gpu"):
+
+
+    """
+    Sets random sets for torch operations.
+
+    Args:
+        seed (int, optional): Random seed to set. Defaults to 42.
+
+    """
+
+    if (set_device == "mps"):
+        torch.mps.seed(seed)
+    else:
+        torch.cuda.manual_seed(seed) # Set the seed for CUDA torch operations (ones that happen on the GPU)
+
+    # Set the seed for general torch operations
+    torch.manual_seed(seed)
+
+    return
 
