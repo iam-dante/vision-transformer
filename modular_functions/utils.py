@@ -311,8 +311,7 @@ def download_data(source: str,
     
     return image_path
 
-def set_seeds(seed: int=42, set_device:str="gpu"):
-
+def set_seeds(s, set_device):
 
     """
     Sets random sets for torch operations.
@@ -323,12 +322,7 @@ def set_seeds(seed: int=42, set_device:str="gpu"):
     """
 
     if (set_device == "mps"):
-        torch.mps.seed(seed)
+       return  torch.manual_seed(s)
     else:
-        torch.cuda.manual_seed(seed) # Set the seed for CUDA torch operations (ones that happen on the GPU)
-
-    # Set the seed for general torch operations
-    torch.manual_seed(seed)
-
-    return
+       return torch.cuda.manual_seed(s), torch.manual_seed(s) # Set the seed for CUDA torch operations (ones that happen on the GPU)
 
