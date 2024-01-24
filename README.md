@@ -1,5 +1,5 @@
 
-<image src="./images/info-readme-architecture.png" alt="" height="300" wight="700"/>
+<image src="./images/info-readme-architecture.png" alt="" height="500" wight="900"/>
 
 # Vision Transfomer
 The *Vision Transformer (ViT)* [paper](https://arxiv.org/abs/2010.11929) introduces a groundbreaking approach to computer vision tasks by leveraging the power of transformers, originally designed for natural language processing. Authored by Alexey Dosovitskiy et al., the paper challenges traditional convolutional neural networks (CNNs) in image classification and demonstrates the effectiveness of transformer architectures in capturing long-range dependencies within images.
